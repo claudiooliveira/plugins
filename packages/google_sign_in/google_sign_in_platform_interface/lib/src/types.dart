@@ -47,7 +47,7 @@ class GoogleSignInUserData {
   /// _Important_: Do not use this returned email address to communicate the
   /// currently signed in user to your backend server. Instead, send an ID token
   /// which can be securely validated on the server. See [idToken].
-  String? email;
+  String email;
 
   /// The unique ID for the Google account.
   ///
@@ -56,20 +56,20 @@ class GoogleSignInUserData {
   /// _Important_: Do not use this returned Google ID to communicate the
   /// currently signed in user to your backend server. Instead, send an ID token
   /// which can be securely validated on the server. See [idToken].
-  String? id;
+  String id;
 
   /// The photo url of the signed in user if the user has a profile picture.
   ///
   /// Not guaranteed to be present for all users, even when configured.
-  String? photoUrl;
+  String photoUrl;
 
   /// A token that can be sent to your own server to verify the authentication
   /// data.
-  String? idToken;
+  String idToken;
 
   /// Authorization code required to make API calls from the server.
   /// Read more on <https://developers.google.com/identity/sign-in/android/offline-access>
-  String? serverAuthCode;
+  String serverAuthCode;
 
   @override
   int get hashCode => hashObjects(
@@ -93,19 +93,19 @@ class GoogleSignInUserData {
 class GoogleSignInTokenData {
   /// Build `GoogleSignInTokenData`.
   GoogleSignInTokenData({
-    this.idToken,
-    this.accessToken,
-    this.serverAuthCode,
+    required this.idToken,
+    required this.accessToken,
+    required this.serverAuthCode,
   });
 
   /// An OpenID Connect ID token for the authenticated user.
-  String? idToken;
+  String idToken;
 
   /// The OAuth2 access token used to access Google services.
-  String? accessToken;
+  String accessToken;
 
   /// Server auth code used to access Google Login
-  String? serverAuthCode;
+  String serverAuthCode;
 
   @override
   int get hashCode => hash3(idToken, accessToken, serverAuthCode);
