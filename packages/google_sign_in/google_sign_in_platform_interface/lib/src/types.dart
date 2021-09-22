@@ -47,7 +47,7 @@ class GoogleSignInUserData {
   /// _Important_: Do not use this returned email address to communicate the
   /// currently signed in user to your backend server. Instead, send an ID token
   /// which can be securely validated on the server. See [idToken].
-  String email;
+  String? email;
 
   /// The unique ID for the Google account.
   ///
