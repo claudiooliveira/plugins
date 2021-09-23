@@ -96,11 +96,11 @@ class GoogleSignInAccount implements GoogleIdentity {
 
     // On Android, there isn't an API for refreshing the idToken, so re-use
     // the one we obtained on login.
-    if (response.idToken == null) {
+    if (response.idToken == null && _idToken != null) {
       response.idToken = _idToken;
     }
 
-    if (response.serverAuthCode == null) {
+    if (response.serverAuthCode == null && _serverAuthCode != null) {
       response.serverAuthCode = _serverAuthCode;
     }
 
@@ -139,8 +139,7 @@ class GoogleSignInAccount implements GoogleIdentity {
         email == otherAccount.email &&
         id == otherAccount.id &&
         photoUrl == otherAccount.photoUrl &&
-        _idToken == otherAccount._idToken &&
-        _serverAuthCode == otherAccount._serverAuthCode;
+        _idToken == otherAccount._idToken;
   }
 
   @override
